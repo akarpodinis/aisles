@@ -19,4 +19,4 @@ ENV PATH=/opt/local/bin:$PATH \
 RUN adduser -D myuser
 USER myuser
 
-CMD gunicorn -b 0.0.0.0:$PORT aisles:app
+CMD gunicorn -b 0.0.0.0:$PORT $GUNICORN_CMD_ARGS aisles:app
