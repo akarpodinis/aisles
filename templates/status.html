@@ -1,12 +1,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/status.css') }}">
 {% extends 'base.html' %}
 {% block content %}
-    <p>{{ list_status }}</p>
-    {% if lists %}
-    <select class="list" name=lists size=5>
+    <select required class="list" name=lists size=5>
     {% for item in lists %}
+        {% if loop.index == 1 and loop.length > 1 %}
+        <option disabled selected hidden class="list-option" value="">{{ item }}</option>}
+        {% else %}
         <option class="list-option" value="{{ item }}">{{ item }}</option>
+        {% endif %}
     {% endfor %}
     </select>
-    {% endif %}
 {% endblock %}

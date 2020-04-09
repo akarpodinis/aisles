@@ -16,3 +16,10 @@ select.list {
     margin: var(--option-margin);
     width: calc(100vw - var(--option-margin) * 2);
 }
+
+select:required:invalid {
+    color: gray;
+}
+option[value=""][disabled] {
+    display: none;
+}

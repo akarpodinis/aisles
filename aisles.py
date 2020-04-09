@@ -13,9 +13,12 @@ def index():
 
     lists = ['First', 'Second', 'Third']
 
-    list_status = 'Found a list!' if lists else 'No lists yet!'
+    if lists:
+        lists.insert(0, f'Choose a list, out of {len(lists)}')
+    else:
+        lists = ['No lists. Go make some!']
 
-    return render_template('status.html', list_status=list_status, lists=lists)
+    return render_template('status.html', lists=lists)
 
 
 @app.route('/favicon.ico')
