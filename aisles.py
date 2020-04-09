@@ -3,8 +3,12 @@ from os import path
 from flask import Flask, render_template, send_from_directory
 
 from cache import cache
+from lists import ListAPI
 
 app = Flask('aisles')
+
+app.add_url_rule('/lists/', view_func=ListAPI.as_view('lists'), methods=['GET'], defaults={'name': None})
+app.add_url_rule('/lists/<name>', view_func=ListAPI.as_view('list'), methods=['GET', 'POST', 'PUT', 'DELETE'])
 
 
 @app.route('/')
