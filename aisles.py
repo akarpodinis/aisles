@@ -16,9 +16,3 @@ def index():
     list_status = 'Found a list!' if lists else 'No lists yet!'
 
     return render_template('status.html', list_status=list_status, lists=lists)
-
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(path.join(app.root_path, 'static'),
-                               'images/favicon.ico', mimetype='image/vnd.microsoft.icon')
