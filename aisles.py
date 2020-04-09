@@ -4,26 +4,16 @@ from flask import Flask, render_template, send_from_directory
 
 from cache import cache
 from lists import ListAPI
+from seed import seed
 
 app = Flask('aisles')
 
 app.add_url_rule('/lists/', view_func=ListAPI.as_view('lists'), methods=['GET'], defaults={'name': None})
 app.add_url_rule('/lists/<name>', view_func=ListAPI.as_view('list'), methods=['GET', 'POST', 'PUT', 'DELETE'])
 
-
-@app.route('/')
-def index():
-    lists = cache.get('lists')
-
-    lists = ['First', 'Second', 'Third']
-
-    if lists:
-        lists.insert(0, f'Choose a list, out of {len(lists)}')
-    else:
-        lists = ['No lists. Go make some!']
-
-    return render_template('status.html', lists=lists)
-
+# Seeding for testing, don't actually ship this later
+app.add_url_rule('/seed/', view_func=seed, defaults={'delete': None})
+app.add_url_rule('/seed/<delete>', view_func=seed)
 
 @app.route('/favicon.ico')
 def favicon():
