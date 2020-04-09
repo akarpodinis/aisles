@@ -9,8 +9,7 @@ RUN pip install --prefix=/opt/local --disable-pip-version-check --no-warn-script
 FROM base
 
 COPY --from=build /opt/local /opt/local
-WORKDIR /app
-COPY . /app
+COPY . .
 
 ENV PATH=/opt/local/bin:$PATH \
     PYTHONPATH=/opt/local/lib/python3.8/site-packages \
