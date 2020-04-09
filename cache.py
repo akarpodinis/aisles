@@ -1,5 +1,5 @@
-from os import getenv
+from os import environ
 
-from redis import Redis
+import redis
 
-cache = Redis(host=getenv('REDIS_URL'), port=6379, db=0)
+cache = redis.from_url(environ.get("REDIS_URL"))
