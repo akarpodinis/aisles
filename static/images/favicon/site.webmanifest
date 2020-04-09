@@ -3,7 +3,7 @@
     "short_name": "Aisles",
     "icons": [
         {
-            "src": "/static/images/android-chrome-96x96.png",
+            "src": "/static/images/favicon/android-chrome-96x96.png",
             "sizes": "96x96",
             "type": "image/png"
         }
