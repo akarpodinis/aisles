@@ -1,3 +1,7 @@
+:root {
+    --option-margin: 1em
+}
+
 select.list {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-width: 5px;
@@ -9,4 +13,6 @@ select.list {
     font-size: large;
     color: #508450;
     border-color: #0e255acf;
+    margin: var(--option-margin);
+    width: calc(100vw - var(--option-margin) * 2);
 }
