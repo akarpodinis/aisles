@@ -10,7 +10,7 @@ select.list {
     padding: 5px;
     outline: none;
     font-family: Verdana;
-    font-size: large;
+    font-size: 3vw;
     color: #508450;
     border-color: #0e255acf;
     margin: var(--option-margin);
