@@ -1,0 +1,12 @@
+select.list {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-width: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px;
+    outline: none;
+    font-family: Verdana;
+    font-size: large;
+    color: #508450;
+    border-color: #0e255acf;
+}

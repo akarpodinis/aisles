@@ -11,4 +11,4 @@ def index():
 
     list_status = 'Found a list!' if lists else 'No lists yet!'
 
-    return render_template('status.html', list_status=list_status)
+    return render_template('status.html', list_status=list_status, lists=lists)

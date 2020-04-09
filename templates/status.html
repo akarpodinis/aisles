@@ -1,4 +1,12 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/status.css') }}">
 {% extends 'base.html' %}
 {% block content %}
-    <span>{{ list_status }}</span>
+    <p>{{ list_status }}</p>
+    {% if lists %}
+    <select class="list" name=lists size=5>
+    {% for item in lists %}
+        <option class="list-option" value="{{ item }}">{{ item }}</option>
+    {% endfor %}
+    </select>
+    {% endif %}
 {% endblock %}
