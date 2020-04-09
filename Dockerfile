@@ -15,6 +15,7 @@ COPY . /app
 ENV PATH=/opt/local/bin:$PATH \
     PYTHONPATH=/opt/local/lib/python3.8/site-packages
 
-STOPSIGNAL SIGINT
+RUN adduser -D myuser
+USER myuser
 
 CMD gunicorn -b 0.0.0.0:$PORT aisles:app
