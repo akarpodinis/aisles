@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ name }}</h1>
+
+{% for aisle in list %}
+    {% for aisle_name, aisle_items in aisle.items() %}
+    <h2>{{ aisle_name }}</h2>
+        {% for item in aisle_items %}
+            <li>{{ item['item'] }}</li>
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

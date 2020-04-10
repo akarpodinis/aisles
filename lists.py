@@ -1,9 +1,9 @@
 import json
 from functools import wraps
 
-from flask import jsonify, request
+from flask import jsonify, render_template, request
 from flask.views import MethodView
-from werkzeug.exceptions import Conflict, NotFound
+from werkzeug.exceptions import Conflict, Forbidden, NotFound
 
 from cache import cache
 
@@ -28,3 +28,13 @@ class ListAPI(MethodView):
     def put(self, name):
        self.delete(name)
        return self.post(name)
+
+
+class ListEditView(MethodView):
+    def get(self):
+        selected = request.args.get('selected_list')
+        if selected and cache.exists(selected):
+            # return jsonify(name=selected, items=json.loads(cache.get(selected)))
+            return render_template('edit_list.html', name=selected, list=json.loads(cache.get(selected)))
+        else:
+            raise Forbidden

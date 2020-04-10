@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/status.css') }}">
 {% extends 'base.html' %}
 {% block content %}
-    <select required class="list" name=lists size=5>
+<form method="GET" action="/list/edit"></form>
+    <select required class="list" name=selected_list size=5>
     {% for item in lists %}
         {% if loop.index == 1 and loop.length > 1 %}
         <option disabled selected hidden class="list-option" value="">{{ item }}</option>}
@@ -10,4 +11,6 @@
         {% endif %}
     {% endfor %}
     </select>
+    <input type="button" value="Submit">
+</form>
 {% endblock %}
