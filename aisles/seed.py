@@ -2,7 +2,7 @@ import json
 
 from flask import jsonify
 
-from cache import cache
+from aisles.cache import cache
 
 
 def seed(delete):

@@ -9,7 +9,8 @@ RUN pip install --prefix=/opt/local --disable-pip-version-check --no-warn-script
 FROM base
 
 COPY --from=build /opt/local /opt/local
-COPY . .
+WORKDIR /app
+COPY . /app
 
 ENV PATH=/opt/local/bin:$PATH \
     PYTHONPATH=/opt/local/lib/python3.8/site-packages \
@@ -18,4 +19,4 @@ ENV PATH=/opt/local/bin:$PATH \
 RUN adduser -D myuser
 USER myuser
 
-CMD gunicorn -b 0.0.0.0:$PORT $GUNICORN_CMD_ARGS aisles:app
+CMD gunicorn -b 0.0.0.0:$PORT $GUNICORN_CMD_ARGS aisles.aisles:app

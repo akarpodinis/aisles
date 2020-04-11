@@ -11,6 +11,8 @@ services:
             GUNICORN_CMD_ARGS: --reload --log-level debug
         ports: 
             - "5000:5000"
+        volumes: 
+            - ./aisles:/app/aisles
     redis:
         image: redis:alpine
         ports:

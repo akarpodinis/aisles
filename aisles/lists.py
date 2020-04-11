@@ -5,7 +5,7 @@ from flask import jsonify, render_template, request
 from flask.views import MethodView
 from werkzeug.exceptions import Conflict, Forbidden, NotFound
 
-from cache import cache
+from aisles.cache import cache
 
 
 class ListAPI(MethodView):

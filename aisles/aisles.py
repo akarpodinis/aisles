@@ -2,9 +2,9 @@ from os import path
 
 from flask import Flask, render_template, send_from_directory
 
-from cache import cache
-from lists import ListAPI, ListEditView
-from seed import seed
+from aisles.cache import cache
+from aisles.lists import ListAPI, ListEditView
+from aisles.seed import seed
 
 app = Flask('aisles')
 
